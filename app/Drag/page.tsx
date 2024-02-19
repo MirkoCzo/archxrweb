@@ -64,11 +64,11 @@ export default function DragAndDrop() {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center">
       <form
         className={`${
           dragActive ? "bg-gray-500" : "bg-gray-300"
-        }  p-4 w-1/3 rounded-lg border border-black min-h-[10rem] text-center flex flex-col items-center justify-center`}
+        }  p-4 w-1/3 rounded-lg border border-black min-h-[8rem] text-center flex flex-col items-center justify-center`}
         onDragEnter={handleDragEnter}
         onSubmit={(e) => e.preventDefault()}
         onDrop={handleDrop}
@@ -115,8 +115,6 @@ export default function DragAndDrop() {
         >
           <span className="p-2 text-white">Submit</span>
         </button>}
-        
-        
       </form>
     </div>
   );

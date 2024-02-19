@@ -4,7 +4,7 @@ export default function Footer()
 {
     return(
         <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-4">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link href="https://github.com/micbelgique/ArchXR" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                     <Image src="/mic.png" alt="Image du mic" width={100} height={100}></Image>
@@ -16,9 +16,6 @@ export default function Footer()
                         </li>
                         <li>
                             <a href="#" className="hover:underline me-4 md:me-6">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline me-4 md:me-6">Licensing</a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">Contact</a>
