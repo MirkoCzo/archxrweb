@@ -67,8 +67,8 @@ export default function DragAndDrop() {
     <div className="flex items-center justify-center h-screen">
       <form
         className={`${
-          dragActive ? "bg-blue-400" : "bg-blue-100"
-        }  p-4 w-1/3 rounded-lg  min-h-[10rem] text-center flex flex-col items-center justify-center`}
+          dragActive ? "bg-gray-500" : "bg-gray-300"
+        }  p-4 w-1/3 rounded-lg border border-black min-h-[10rem] text-center flex flex-col items-center justify-center`}
         onDragEnter={handleDragEnter}
         onSubmit={(e) => e.preventDefault()}
         onDrop={handleDrop}
