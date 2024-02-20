@@ -25,19 +25,39 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
+.dark-mode nav{
+  background: #242424;
+  color: whitesmoke;
+  border-color: #555555;
+}
+.dark-mode nav ul{
+  background: #242424;
+}
+.dark-mode nav li{
+  color: whitesmoke;
+}
+.dark-mode footer{
+  background: #303030;
+  color: whitesmoke;
+}
+.dark-mode footer hr{
+  border-color: #555555;
+}
 .dark-mode body{
 
   color: whitesmoke;
   background: linear-gradient(
       to bottom,
       transparent,
-      #000
+      #404040
     )
-    #000;
+    #404040;
 
 }
 
+.dark-mode #drag form{
+  background-color: #555555;
+}
 #labelDark{
   width: 62.5px;
   height: 25px;

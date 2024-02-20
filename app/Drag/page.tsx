@@ -64,7 +64,7 @@ export default function DragAndDrop() {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div id="drag" className="flex items-center justify-center">
       <form
         className={`${
           dragActive ? "bg-gray-500" : "bg-gray-300"
