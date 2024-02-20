@@ -26,6 +26,72 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.dark-mode body{
+
+  color: whitesmoke;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      #000
+    )
+    #000;
+
+}
+
+#labelDark{
+  width: 62.5px;
+  height: 25px;
+  position:relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 50px;
+  box-shadow: inset 0px 1.25px 3.75px rgba(0,0,0,0.4), inset 0px -1.25px 3.75px rgba(255,255,255,0.4);
+}
+
+#labelDark:after{
+  content:"";
+  width: 22.5px;
+  height: 22.5px;
+  position: absolute;
+  top: 1.25px;
+  left: 1.25px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 45px;
+  box-shadow: 0px 1.25px 3.75px rgba(0,0,0,0.2);
+}
+
+#darkmode-toggle{
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+#darkmode-toggle:checked + #labelDark{
+  background: #242424;
+}
+
+#darkmode-toggle:checked + #labelDark:after{
+  left: 61.25px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+#labelDark, #labelDark:after{
+  transition: 0.3s;
+}
+
+.background{
+  width: 100vw;
+  height: 100vh;
+  background-attachment: #fff;
+  z-index: -1;
+  position: absolute;
+  transition: 0.3s;
+}
+
+#darkmode-toggle:checked + #labelDark + .background{
+  background: #242424;
+
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
