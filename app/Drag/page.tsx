@@ -1,5 +1,5 @@
 "use client";
-
+import { BlobServiceClient } from "@azure/storage-blob";
 import { useRef, useState, useEffect } from "react";
 export default function DragAndDrop() {
   const [dragActive, setDragActive] = useState<boolean>(false);
@@ -19,7 +19,26 @@ export default function DragAndDrop() {
 
   function handleSubmitFile(e: any) {
     console.log("Files submitted:", files);
-    alert("fichier(s) ajouté(s)")
+
+    for(let i = 0; i < files.length; i++) {
+      let file = files[i];
+      let blob = new Blob([file], { type: file.type });
+      uploadBlob(blob, file.name).catch(console.error);
+    }
+    alert("fichier(s) ajouté(s)");
+  }
+  async function uploadBlob(blobData: Blob, name: string): Promise<void> {
+    const storageUrl = process.env.NEXT_PUBLIC_URL_SAP;
+    console.log("Storage URL:", storageUrl)
+    if (!storageUrl) {
+      console.log("Storage URL not found");
+      throw new Error("Storage URL not found");
+    }
+    const blobServiceClient = new BlobServiceClient(storageUrl);
+    const containerClient = blobServiceClient.getContainerClient("architecte");
+    const blobClient = containerClient.getBlockBlobClient(name);
+    const result = await blobClient.uploadData(blobData);
+
   }
 
   function handleDrop(e: any) {
@@ -67,7 +86,7 @@ export default function DragAndDrop() {
     <div id="drag" className="flex items-center justify-center">
       <form
         className={`${
-          dragActive ? "bg-gray-500" : "bg-gray-300"
+          dragActive ? "drag-active-class" : "drag-inactive-class"
         }  p-4 w-1/3 rounded-lg border border-black min-h-[8rem] text-center flex flex-col items-center justify-center`}
         onDragEnter={handleDragEnter}
         onSubmit={(e) => e.preventDefault()}

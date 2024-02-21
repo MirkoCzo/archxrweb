@@ -47,9 +47,6 @@ body {
 
 }
 
-.dark-mode #drag form{
-  background-color: #555555;
-}
 #labelDark{
   width: 62.5px;
   height: 25px;
@@ -102,6 +99,24 @@ body {
 
 #darkmode-toggle:checked + #labelDark + .background{
   background: #242424;
+
+}
+
+.drag-active-class{
+  background-color: rgb(107 114 128);
+}
+
+.drag-inactive-class{
+  background-color: rgb(209 213 219);
+}
+
+.dark-mode .drag-active-class {
+  background-color: rgb(209 213 219);
+
+}
+
+.dark-mode .drag-inactive-class {
+  background-color: rgb(107 114 128);
 
 }
 @layer utilities {
